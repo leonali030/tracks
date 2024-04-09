@@ -6,7 +6,6 @@ import {Context as AuthContext} from '../context/AuthContext';
 
 const SignupScreen = ({navigation})=>{
   const {state, signup} = useContext(AuthContext)
-  console.log(state);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     return (
@@ -38,6 +37,7 @@ const SignupScreen = ({navigation})=>{
         onPress={()=>signup({email, password})}
         />
         </Spacer>
+        {state.errorMessage ? <Text>{state.errorMessage}</Text> : null}
         </View>
       );
 };
